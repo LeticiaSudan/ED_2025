@@ -29,7 +29,6 @@ int main() {
 
     processar_arquivo("entradas0.txt", &e);
 
-    // Exibe o total de manobras no final
     exibir_manobras(&e);
 
     free(e.carros);
@@ -60,7 +59,7 @@ int estacionar(estacionamento *e, char placa[7]) {
     }
     e->topo++;
     strncpy(e->carros[e->topo].placa, placa, 7);
-    e->carros[e->topo].placa[7] = '\0'; // Garante que a string esteja terminada
+    e->carros[e->topo].placa[7] = '\0'; 
     e->carros[e->topo].manobras = 0;
     return 1;
 }
@@ -87,20 +86,20 @@ int retirar_carro(estacionamento *e, char placa[7]) {
     carro temp_carros[TAMANHO_ESTACIONAMENTO];
     int temp_topo = -1;
 
-    // Remove os carros acima do desejado, incrementando manobras corretamente
+   
     while (e->topo > encontrado) {
         temp_carros[++temp_topo] = e->carros[e->topo];
-        temp_carros[temp_topo].manobras++; // Corrigido aqui: incremento no temporário!
+        temp_carros[temp_topo].manobras++; 
         printf("Carro %s foi temporariamente removido. Total de manobras: %d\n",
                temp_carros[temp_topo].placa, temp_carros[temp_topo].manobras);
         e->topo--;
     }
 
-    // Retira o carro desejado
+  
     printf("Carro %s retirado. Total de manobras: %d\n", e->carros[e->topo].placa, e->carros[e->topo].manobras);
     e->topo--;
 
-    // Recoloca os carros temporariamente removidos, mantendo os dados
+   
     while (temp_topo >= 0) {
         e->topo++;
         e->carros[e->topo] = temp_carros[temp_topo--];
