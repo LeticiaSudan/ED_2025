@@ -55,12 +55,32 @@ void mostra_fila (t_fila *pf){
 
 void exibe_primeiro(t_fila *pf){
     if(fila_vazia(pf)){
-        printf("\nFila vazia");
+        printf("Fila vazia!\n");
     }
     else{
-        printf("\n %d", )
+        printf("%d\n", pf->primeiro->info);
     }
 }
-int devolve_primeiro(t_fila *);
-void exibe_ultimo(t_fila *);
-int devolve_ultimo(t_fila *);
+
+int devolve_primeiro(t_fila *pf){
+    if(fila_vazia(pf)){
+        return -1;
+    }
+    return pf->primeiro->info;
+}
+
+void exibe_ultimo(t_fila *pf){
+    if(fila_vazia(pf)){
+        printf("Fila vazia!\n");
+    }
+    else{
+        printf("%d\n", pf->ultimo->info);
+    }
+}
+
+int devolve_ultimo(t_fila *pf){
+    if(fila_vazia(pf)){
+        return -1;
+    }
+    return pf->ultimo->info;
+}
