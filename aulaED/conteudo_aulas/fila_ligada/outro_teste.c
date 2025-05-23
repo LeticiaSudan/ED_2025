@@ -2,19 +2,19 @@
 #include <time.h>
 
 int main(){
-    t_fila *fila = constroi_fila(8);
+    t_fila *fila = constroi_fila();
     int a;
     srand(time(0));
     do{
         if(rand() % 2 == 0){
-            enfileirar(rand() % 10, fila);
+            enfileira(rand() % 10, fila);
         }
         else{
-            desenfileirar(&a, fila);
+            desenfileira(&a, fila);
         }
         mostra_fila(fila);
-        mostra_vetor(fila);
-    }while(!fila_vazia(fila));
-
+        printf("\n\\\\\\\\\\\\\\\\\n");
+    
+    } while(!fila_vazia(fila));
     return 0;
 }
